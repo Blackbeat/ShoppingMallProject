@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@ page import="dto.Product"  %>
-<jsp:useBean id="productDAO" class="dao.ProductRepository" scope="session" />
+<%@ page import="dao.ProductRepository" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,8 @@
 	</div>
 	<%
 		String id = request.getParameter("id");
-		Product product = productDAO.getProductById(id);
+	ProductRepository dao = ProductRepository.getInstance();
+		Product product = dao.getProductById(id);
 	%>
 	<div class="container">
 		<div class="row">
@@ -26,7 +27,7 @@
 				<p><b>상품 코드 : </b><span class="badge badge-danger"> <%=product.getProductId() %></span>
 				<p><b>제조사</b> : <%=product.getManufacturer() %>
 				<p><b>분류</b> : <%=product.getCategory() %>
-				<p><b>재고 수</b> : <%=product.getUnitInStock() %>
+				<p><b>재고 수</b> : <%=product.getUnitsInStock() %>
 				<h4><%=product.getUnitPrice() %>원</h4>
 				<p><a href="#" class="btn btn-info"> 상품 주문</a> <a href="./products.jsp" class="btn btn-secondary"> 상품 목록</a>
 			</div>

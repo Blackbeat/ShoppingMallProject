@@ -14,7 +14,7 @@ public class Product implements Serializable {
 		private String description;
 		private String manufacturer;
 		private String category;
-		private long unitInStock;
+		private long unitsInStock;
 		private String condition;
 		
 		public Product() {
@@ -67,12 +67,13 @@ public class Product implements Serializable {
 			this.category = category;
 		}
 
-		public long getUnitInStock() {
-			return unitInStock;
+
+		public long getUnitsInStock() {
+			return unitsInStock;
 		}
 
-		public void setUnitInStock(long unitInStock) {
-			this.unitInStock = unitInStock;
+		public void setUnitsInStock(long unitsInStock) {
+			this.unitsInStock = unitsInStock;
 		}
 
 		public String getCondition() {
